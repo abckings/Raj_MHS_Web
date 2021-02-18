@@ -50,7 +50,27 @@
 
 <script type="text/javascript" src="js/jquery.caroufredsel.js"></script>
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+
 <script>
+	function doesFileExist(urlToFile)
+	{
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open('HEAD', 'gallery1-images/'+urlToFile+'.jpg', false);
+		
+			console.log(xhr);
+		xhr.send();
+
+		 if (xhr.status == "404") {
+			console.log("File doesn't exist");
+			return false;
+		} else {
+			console.log("File exists");
+			return true;
+		}
+	}
+
+
 $(document).ready(function() {
 	// camera
 	$('#camera_wrap').camera({
@@ -114,7 +134,11 @@ $(document).ready(function() {
 
 }); //
 $(window).load(function() {
-	//
+	var i = 1;
+	while (doesFileExist(i)){
+		document.getElementById('gallery').innerHTML = "<div><img src='gallery1-images/"+i+".jpg'></div>";
+		i += 1;
+	}
 
 }); //
 </script>
@@ -200,15 +224,10 @@ $(window).load(function() {
 
 <h1>Gallery</h1>
 <p align="justify">
-
-	<img src="gallery1-images/1.jpg">
-	<img src="gallery1-images/2.jpg">
-	<img src="gallery1-images/3.jpg">
-	<img src="gallery1-images/4.jpg">
-	<img src="gallery1-images/5.jpg">
-	<img src="gallery1-images/6.jpg">
-	<img src="gallery1-images/7.jpg">
-
+	
+	<div id = "gallery" >
+		
+	<div>
 
 </p>
 </div>
