@@ -57,15 +57,11 @@
 		var xhr = new XMLHttpRequest();
 		
 		xhr.open('HEAD', 'gallery1-images/'+urlToFile+'.jpg', false);
-		
-			console.log(xhr);
 		xhr.send();
 
 		 if (xhr.status == "404") {
-			console.log("File doesn't exist");
 			return false;
 		} else {
-			console.log("File exists");
 			return true;
 		}
 	}
