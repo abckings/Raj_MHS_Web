@@ -133,8 +133,9 @@ $(window).load(function() {
 	var i = 1;
 	var t = doesFileExist(i);
 	while (t || i < 10){
-		if(t)
+		if(t){
 			document.getElementById('gallery').innerHTML = document.getElementById('gallery').innerHTML + "<div><img src='gallery1-images/"+i+".jpg'></div>";
+		}
 		t = doesFileExist(i);
 		i += 1;
 	}
