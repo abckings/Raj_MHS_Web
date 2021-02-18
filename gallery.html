@@ -131,7 +131,7 @@
 		while (t || i < 10){
 			if(t){
 				document.getElementById('gallery').innerHTML = document.getElementById('gallery').innerHTML +
-				"<div ><img class = 'Gimg' src='gallery1-images/"+i+".jpg'> </div>";
+				"<div ><img style = 'width: 40%; background-color: transparent; border-radius: 40px; align-self: center;' src='gallery1-images/"+i+".jpg'> </div>";
 			}
 			t = doesFileExist(i);
 			i += 1;

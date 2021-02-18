@@ -512,5 +512,3 @@ img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .alignright { float: right; }
 .alignleft { float: left; }
 .aligncenter { display: block; margin-left: auto; margin-right: auto; }
-
-.Gimg { width: 40%; background-color: transparent; border-radius: 40px; align-self: center;}
