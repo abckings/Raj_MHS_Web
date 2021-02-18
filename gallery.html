@@ -136,7 +136,7 @@ $(document).ready(function() {
 $(window).load(function() {
 	var i = 1;
 	while (doesFileExist(i)){
-		document.getElementById('gallery').innerHTML = "<div><img src='gallery1-images/"+i+".jpg'></div>";
+		document.getElementById('gallery').innerHTML = document.getElementById('gallery').innerHTML + "<div><img src='gallery1-images/"+i+".jpg'></div>";
 		i += 1;
 	}
 
