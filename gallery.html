@@ -52,6 +52,7 @@
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
 
 <script>
+
 	function doesFileExist(urlToFile)
 	{
 		var xhr = new XMLHttpRequest();
@@ -67,80 +68,75 @@
 	}
 
 
-$(document).ready(function() {
-	// camera
-	$('#camera_wrap').camera({
-		//thumbnails: true
-		autoAdvance			: true,
-		mobileAutoAdvance	: true,
-		fx					: 'scrollLeft',
-		height: '40%',
-		hover: false,
-		loader: 'none',
-		navigation: true,
-		navigationHover: false,
-		mobileNavHover: false,
-		playPause: false,
-		pauseOnClick: false,
-		pagination			: false,
-		time: 7000,
-		transPeriod: 1000,
-		minHeight: '200px'
-	});
+	$(document).ready(function() {
+		// camera
+		$('#camera_wrap').camera({
+			//thumbnails: true
+			autoAdvance			: true,
+			mobileAutoAdvance	: true,
+			fx					: 'scrollLeft',
+			height: '40%',
+			hover: false,
+			loader: 'none',
+			navigation: true,
+			navigationHover: false,
+			mobileNavHover: false,
+			playPause: false,
+			pauseOnClick: false,
+			pagination			: false,
+			time: 7000,
+			transPeriod: 1000,
+			minHeight: '200px'
+		});
 
-	//	carouFredSel banner
-	$('#banner .carousel.main ul').carouFredSel({
-		auto: {
-			timeoutDuration: 8000
-		},
-		responsive: true,
-		prev: '.banner_prev',
-		next: '.banner_next',
-		width: '100%',
-		scroll: {
-			items: 1,
-			duration: 1000,
-			easing: "easeOutExpo"
-		},
-		items: {
-        	width: '350',
-			height: 'variable',	//	optionally resize item-height
-			visible: {
-				min: 1,
-				max: 3
-			}
-		},
-		mousewheel: false,
-		swipe: {
-			onMouse: true,
-			onTouch: true
-			}
-	});
+		//	carouFredSel banner
+		$('#banner .carousel.main ul').carouFredSel({
+			auto: {
+				timeoutDuration: 8000
+			},
+			responsive: true,
+			prev: '.banner_prev',
+			next: '.banner_next',
+			width: '100%',
+			scroll: {
+				items: 1,
+				duration: 1000,
+				easing: "easeOutExpo"
+			},
+			items: {
+				width: '350',
+				height: 'variable',	//	optionally resize item-height
+				visible: {
+					min: 1,
+					max: 3
+				}
+			},
+			mousewheel: false,
+			swipe: {
+				onMouse: true,
+				onTouch: true
+				}
+		});
 
-
-
-
-
-	$(window).bind("resize",updateSizes_vat).bind("load",updateSizes_vat);
-	function updateSizes_vat(){
-		$('#banner .carousel.main ul').trigger("updateSizes");
-	}
-	updateSizes_vat();
-
-
-}); //
-$(window).load(function() {
-	var i = 1;
-	var t = doesFileExist(i);
-	while (t || i < 10){
-		if(t){
-			document.getElementById('gallery').innerHTML = document.getElementById('gallery').innerHTML + "<div><img src='gallery1-images/"+i+".jpg'></div>";
+		$(window).bind("resize",updateSizes_vat).bind("load",updateSizes_vat);
+		function updateSizes_vat(){
+			$('#banner .carousel.main ul').trigger("updateSizes");
 		}
-		t = doesFileExist(i);
-		i += 1;
-	}
+		updateSizes_vat();
+	}); 
 
-}); //
+	$(window).load(function() {
+		var i = 1;
+		var t = doesFileExist(i);
+		while (t || i < 10){
+			if(t){
+				document.getElementById('gallery').innerHTML = document.getElementById('gallery').innerHTML +
+				"<div ><img class = 'Gimg' src='gallery1-images/"+i+".jpg'> </div>";
+			}
+			t = doesFileExist(i);
+			i += 1;
+		}
+	});
 </script>
 <!--[if lt IE 8]>
 		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>
@@ -226,7 +222,7 @@ $(window).load(function() {
 <p align="justify">
 	
 	<div id = "gallery" >
-		
+		<div ><img class = 'Gimg' src='gallery1-images/1.jpg'> </div>
 	<div>
 
 </p>
