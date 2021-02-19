@@ -126,12 +126,6 @@
 				onTouch: true
 				}
 		});
-
-		$(window).bind("resize",updateSizes_vat).bind("load",updateSizes_vat);
-		function updateSizes_vat(){
-			$('#banner .carousel.main ul').trigger("updateSizes");
-		}
-		updateSizes_vat();
 	}); 
 
 	$(window).load(function() {
