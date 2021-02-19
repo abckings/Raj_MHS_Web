@@ -119,11 +119,10 @@
 		
 	});
 	function submitEnquiry(x){
-		var name = document.getElementById('inputName').value ;
-		var email = document.getElementById('inputEmail').value ;
-		var phn = document.getElementById('inputPhone').value ;
-		var msg = document.getElementById('inputMessage').value ;
-		var data = "Name%3A"+encodeURIComponent(name)+"%0D%0AEmail%3A"+encodeURIComponent(email)+"%0D%0APhone%3A"+encodeURIComponent(phn)+"%0D%0AMessage%3A"+encodeURIComponent(msg);
+		var data = (document.getElementById('inputName').value == "Your full name:" ? "":"Name%3A"+encodeURIComponent(document.getElementById('inputName').value))+
+		(document.getElementById('inputEmail').value == "Your email:" ? "":"%0D%0AEmail%3A"+encodeURIComponent(document.getElementById('inputEmail').value))+
+		(document.getElementById('inputPhone').value == "Phone number:" ? "":"%0D%0APhone%3A"+encodeURIComponent(document.getElementById('inputPhone').value))+
+		(document.getElementById('inputMessage').value == "Message:" ? "":"%0D%0AMessage%3A"+encodeURIComponent(document.getElementById('inputMessage').value));
 		if(x == 1){
 			window.open("https://wa.me/916383376668?text="+data);
 		}
