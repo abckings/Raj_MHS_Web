@@ -55,7 +55,6 @@
 
 <script type="text/javascript" src="js/jquery.caroufredsel.js"></script>
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 
 <script>
 
@@ -136,15 +135,15 @@
 		var t = doesFileExist(i);
 		while (t || i < 10){
 			if(t){
-				document.getElementById('gallery').innerHTML = document.getElementById('gallery').innerHTML +
-				"<div ><img style = 'width: 40%; background-color: transparent; border-radius: 40px; align-self: center;' src='gallery1-images/"+i+".jpg'> </div>";
+				document.getElementById('gal').innerHTML = document.getElementById('gal').innerHTML +
+				'<div class="col-sm-12 col-md-4">'+
+                '<a class="lightbox" href="gallery1-images/'+i+'.jpg">'+
+                '<img src="gallery1-images/'+i+'.jpg"></a></div>';
 			}
 			t = doesFileExist(i);
 			i += 1;
 		}
 	});
-	
-	baguetteBox.run('.tz-gallery');
 </script>
 <!--[if lt IE 8]>
 		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>
@@ -173,7 +172,7 @@
 
 <div class="menu_wrapper">
 <p align="right">
-<strong style="color:#000000; font-size:16px; font-family:Oswald;"><img src="images/telephone.png" alt=""/>+91 63833 76668<br>
+<strong style="color:#000000; font-size:16px; font-family:Oswald;"><img src="images/telephone.png" alt=""/><a href = "tel:+916383376668">+91 63833 76668 </a><br>
 <img src="images/email.png" alt=""/>&nbsp;&nbsp;<a href="mailto:info@mindhealthservices.org" target="_blank" style="color:#000000;font-size:16px;font-family:Oswald;">info@mindhealthservices.org</a></strong><br>
 </p>
 <div class="navbar navbar_">
@@ -231,49 +230,13 @@
 	
 	<div class="tz-gallery">
 
-        <div class="row">
-
-            <div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/1.jpg">
-                    <img src="gallery1-images/1.jpg">
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/2.jpg">
-                    <img src="gallery1-images/2.jpg">
-                </a>
-            </div>
-			<div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/3.jpg">
-                    <img src="gallery1-images/3.jpg">
-                </a>
-            </div>
-			            <div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/4.jpg">
-                    <img src="gallery1-images/4.jpg">
-                </a>
-            </div>
-			<div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/5.jpg">
-                    <img src="gallery1-images/5.jpg">
-                </a>
-            </div>
-			            <div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/6.jpg">
-                    <img src="gallery1-images/6.jpg">
-                </a>
-            </div>
-			<div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="gallery1-images/7.jpg">
-                    <img src="gallery1-images/7.jpg">
-                </a>
-            </div>
+        <div class="row" id = "gal">
+			
         </div>
 
     </div>
 
 </p>
-</div>
 </div>
 </div>
 </div>
@@ -284,47 +247,45 @@
 <div class="bot1">
 <div class="container">
 <div class="row">
-<div class="span4">
+	<div class="span4">
 
-<div class="logo2_wrapper"><a href="index.html" class="logo2"><img src="images/logo2.png" alt=""></a></div>
+	<div class="logo2_wrapper"><a href="index.html" class="logo2"><img src="images/logo2.png" alt=""></a></div>
+
+	<footer><p style="font-size:18px">Copyright &copy; 2018. All rights reserved.</p></footer>
+
+	</div>
 	
-<footer><p style="font-size:18px">Copyright &copy; 2018. All rights reserved.</p></footer>
+	<div class="span4">
+	<div class="bot1_title">Contact Us</div>
+	<p style="font-size:16px">
 
-</div>
-<div class="span4">
+	304-B, Block II, Alaka Palazzo,<br>
+	4/219 Poonamallee High Road,<br>
+	Kattupakkam, Chennai 56.<br><br>
 
-<div class="bot1_title">Contact Us</div>
+	Mobile : <a href = "tel:+916383376668">+91 63833 76668 </a> <br>
+	Mobile : <a href = "tel:+919789086096">+91 97890 86096 </a><br>
+	E-mail: <a href="#">info@mindhealthservices.org</a><br>
+	Website: www.mindhealthservices.org<br>
 
-<p style="font-size:16px">
-304-B, Block II, Alaka Palazzo,<br>
-4/219 Poonamallee High Road,<br>
-Kattupakkam, Chennai 56.<br><br>
+	</p></div>
+	
+	<div class="span4">
 
-Mobile : +91 63833 76668 <br>
-Mobile : +91 97890 86096<br>
-E-mail: <a href="#">info@mindhealthservices.org</a><br>
-Website: www.mindhealthservices.org<br>
-</p>
+	<div class="bot1_title">Follow Us</div>
 
-</div>
-<div class="span4">
-
-<div class="bot1_title">Follow Us</div>
-
-<div class="social_wrapper">
-	<ul class="social clearfix">
-	    <li><a href="#"><img src="images/social_ic1.png"></a></li>
-	    <li><a href="#"><img src="images/social_ic2.png"></a></li>
-	    <li><a href="#"><img src="images/social_ic3.png"></a></li>
-	    <li><a href="#"><img src="images/social_ic4.png"></a></li>
-	</ul>
-</div>
-
+	<div class="social_wrapper">
+		<ul class="social clearfix">
+			<li><a href="#"><img src="images/social_ic1.png"></a></li>
+			<li><a href="#"><img src="images/social_ic2.png"></a></li>
+			<li><a href="#"><img src="images/social_ic3.png"></a></li>
+			<li><a href="#"><img src="images/social_ic4.png"></a></li>
+		</ul>
+	</div>
+	</div>
 </div>
 </div>
 </div>
-</div>
-
 
 
 
