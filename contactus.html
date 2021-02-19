@@ -32,6 +32,7 @@
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen">
@@ -50,72 +51,85 @@
 <script type="text/javascript" src="js/jquery.caroufredsel.js"></script>
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
 <script>
-$(document).ready(function() {
-	// camera
-	$('#camera_wrap').camera({
-		//thumbnails: true
-		autoAdvance			: true,
-		mobileAutoAdvance	: true,
-		fx					: 'scrollLeft',
-		height: '40%',
-		hover: false,
-		loader: 'none',
-		navigation: true,
-		navigationHover: false,
-		mobileNavHover: false,
-		playPause: false,
-		pauseOnClick: false,
-		pagination			: false,
-		time: 7000,
-		transPeriod: 1000,
-		minHeight: '200px'
+	$(document).ready(function() {
+		// camera
+		$('#camera_wrap').camera({
+			//thumbnails: true
+			autoAdvance			: true,
+			mobileAutoAdvance	: true,
+			fx					: 'scrollLeft',
+			height: '40%',
+			hover: false,
+			loader: 'none',
+			navigation: true,
+			navigationHover: false,
+			mobileNavHover: false,
+			playPause: false,
+			pauseOnClick: false,
+			pagination			: false,
+			time: 7000,
+			transPeriod: 1000,
+			minHeight: '200px'
+		});
+
+		//	carouFredSel banner
+		$('#banner .carousel.main ul').carouFredSel({
+			auto: {
+				timeoutDuration: 8000
+			},
+			responsive: true,
+			prev: '.banner_prev',
+			next: '.banner_next',
+			width: '100%',
+			scroll: {
+				items: 1,
+				duration: 1000,
+				easing: "easeOutExpo"
+			},
+			items: {
+				width: '350',
+				height: 'variable',	//	optionally resize item-height
+				visible: {
+					min: 1,
+					max: 3
+				}
+			},
+			mousewheel: false,
+			swipe: {
+				onMouse: true,
+				onTouch: true
+				}
+		});
+
+
+
+
+
+		$(window).bind("resize",updateSizes_vat).bind("load",updateSizes_vat);
+		function updateSizes_vat(){
+			$('#banner .carousel.main ul').trigger("updateSizes");
+		}
+		updateSizes_vat();
+		
+		
+
 	});
-
-	//	carouFredSel banner
-	$('#banner .carousel.main ul').carouFredSel({
-		auto: {
-			timeoutDuration: 8000
-		},
-		responsive: true,
-		prev: '.banner_prev',
-		next: '.banner_next',
-		width: '100%',
-		scroll: {
-			items: 1,
-			duration: 1000,
-			easing: "easeOutExpo"
-		},
-		items: {
-        	width: '350',
-			height: 'variable',	//	optionally resize item-height
-			visible: {
-				min: 1,
-				max: 3
-			}
-		},
-		mousewheel: false,
-		swipe: {
-			onMouse: true,
-			onTouch: true
-			}
+	$(window).load(function() {
+		
 	});
-
-
-
-
-
-	$(window).bind("resize",updateSizes_vat).bind("load",updateSizes_vat);
-	function updateSizes_vat(){
-		$('#banner .carousel.main ul').trigger("updateSizes");
+	function submitEnquiry(x){
+		var name = document.getElementById('inputName').value ;
+		var email = document.getElementById('inputEmail').value ;
+		var phn = document.getElementById('inputPhone').value ;
+		var msg = document.getElementById('inputMessage').value ;
+		var data = "Name%3A"+encodeURIComponent(name)+"%0D%0AEmail%3A"+encodeURIComponent(email)+"%0D%0APhone%3A"+encodeURIComponent(phn)+"%0D%0AMessage%3A"+encodeURIComponent(msg);
+		if(x == 1){
+			window.open("https://wa.me/916383376668?text="+data);
+		}
+		else{
+			window.open('mailto:info@mindhealthservices.org?subject=&body='+data);
+		}
 	}
-	updateSizes_vat();
-
-
-}); //
-$(window).load(function() {
-	//
-
-}); //
 </script>
 <!--[if lt IE 8]>
 		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>
@@ -212,7 +226,7 @@ Kattupakkam, Chennai 56.<br><br>
 Mobile : <a href = "tel:+916383376668">+91 63833 76668 </a> / <a href = "tel:+919789086096">+91 97890 86096 </a><br>
 E-mail: <a href="mailto:info@mindhealthservices.org" target="_blank">info@mindhealthservices.org</a><br>
 
-Website: www.mindhealthservices.org<br>
+Website: <a href = "https://www.mindhealthservices.org">www.mindhealthservices.org</a><br>
 
 </p>
 </div>
@@ -237,9 +251,7 @@ Website: www.mindhealthservices.org<br>
 <h3 style="font-family:'arial';">QUICK ENQUIRY</h2>
 <br>
 
-	<form id="ajax-contact-form" class="form-horizontal" name="form" method="post" onSubmit="return vali()" action="callback.php" id="contact-form">
-		
-			
+	<div id="ajax-contact-form" class="form-horizontal">
 				<div class="control-group">
 				    <label class="control-label" for="inputName">Your full name:</label>
 				    <div class="controls">				      
@@ -266,11 +278,14 @@ Website: www.mindhealthservices.org<br>
 				      <textarea class="" id="inputMessage" name="cf_comments" onBlur="if(this.value=='') this.value='Message:'" 
                         onFocus="if(this.value =='Message:' ) this.value=''">Message:</textarea>
 				    </div>
+				</div> 
+				<div class="row-fluid">
+					<div class = "span8" ><button type="button" class = "btn fa fa-whatsapp" style = "background:#25D366;" onClick = "submitEnquiry(1);"> WhatsApp</button></div>
+					<div class = "span4"><button type="button" class = "btn fa" style = "background:#4285F4;color:white;" onClick = "submitEnquiry(2);"> Mail</button></div>	
 				</div>
-			
-		
-		<button type="submit" class="submit"><em></em>Submit</button>
-	</form>
+	</div>
+	
+	
 </div>
 
 
@@ -286,7 +301,7 @@ Website: www.mindhealthservices.org<br>
 
 <div class="logo2_wrapper"><a href="index.html" class="logo2"><img src="images/logo2.png" alt=""></a></div>
 
-<footer><p style="font-size:18px">Copyright B) 2018. All rights reserved.</p></footer>
+<footer><p style="font-size:18px">Copyright &copy; 2018. All rights reserved.</p></footer>
 
 </div>
 <div class="span4">
@@ -300,8 +315,8 @@ Kattupakkam, Chennai 56.<br><br>
 
 Mobile : <a href = "tel:+916383376668">+91 63833 76668 </a> <br>
 Mobile : <a href = "tel:+919789086096">+91 97890 86096 </a><br>
-E-mail: <a href="#">info@mindhealthservices.org</a><br>
-Website: www.mindhealthservices.org<br>
+E-mail: <a href="mailto:info@mindhealthservices.org">info@mindhealthservices.org</a><br>
+Website: <a href = "https://www.mindhealthservices.org">www.mindhealthservices.org</a><br>
 </p>
 
 </div>

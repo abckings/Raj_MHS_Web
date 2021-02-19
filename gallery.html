@@ -16,7 +16,7 @@
  
 <meta name="author" content="Low Cost Webdesign" /> 
   
-<meta name="site" content="www.mindhealthservices.org" /> 
+<meta name="site" content="www.mindhealthservices.org"/> 
  
 <meta name="copyright" content="Copyright 2018, MIND HEALTH SERVICES" /> 
  
@@ -135,13 +135,13 @@
 		var t = doesFileExist(i);
 		while (t || i < 10){
 			if(t){
-				document.getElementById('gal').innerHTML = document.getElementById('gal').innerHTML +
-				'<div class="col-sm-12 col-md-4">'+
+				document.getElementById('gal').innerHTML = '<div class="col-sm-12 col-md-4">'+
                 '<a class="lightbox" href="gallery1-images/'+i+'.jpg">'+
-                '<img src="gallery1-images/'+i+'.jpg"></a></div>';
+                '<img src="gallery1-images/'+i+'.jpg"></a></div>' +
+				document.getElementById('gal').innerHTML;
 			}
-			t = doesFileExist(i);
 			i += 1;
+			t = doesFileExist(i);
 		}
 	});
 </script>
@@ -265,12 +265,12 @@
 
 	Mobile : <a href = "tel:+916383376668">+91 63833 76668 </a> <br>
 	Mobile : <a href = "tel:+919789086096">+91 97890 86096 </a><br>
-	E-mail: <a href="#">info@mindhealthservices.org</a><br>
-	Website: www.mindhealthservices.org<br>
+	E-mail: <a href="mailto:info@mindhealthservices.org">info@mindhealthservices.org</a><br>
+	Website: <a href = "https://www.mindhealthservices.org">www.mindhealthservices.org</a><br>
 
 	</p></div>
 	
-	<div class="span4">
+	<div class="span3">
 
 	<div class="bot1_title">Follow Us</div>
 
